@@ -25,6 +25,7 @@ assert std([1., 2., 3., 4.]) == 1.25**0.5
 
 # The median is the middle value in a sorted dataset. If the dataset has an odd number of values, the median is the value at the center. If the dataset has an even number of values, the median is the average of the two middle values.
 def median(li: list[float]) -> float:
+   li.sort()
    midl = len(li)//2
    if len(li)%2 == 0:
       median_val = (li[midl] + li[midl-1])/2
@@ -33,8 +34,7 @@ def median(li: list[float]) -> float:
    return median_val
 
 assert median([1., 1., 1.]) == 1.
-# тут буде false тому що правильна відповідь 3.5
-# assert median([1., 4., 3., 2.]) == 2.5
+assert median([1., 4., 3., 2.]) == 2.5
 
 # Let's compare the runtime of your implementations and numpy. Use the provided setup code:
 # generate data for tests
